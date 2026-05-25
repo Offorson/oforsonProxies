@@ -1,0 +1,20 @@
+# Enforce consistent LF line endings across Windows / macOS / Linux.
+# This keeps the repo clean for collaborators and silences Git's
+# "LF will be replaced by CRLF" warnings.
+* text=auto eol=lf
+
+# Binary assets — never apply text or end-of-line conversion.
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.ico   binary
+*.webp  binary
+*.avif  binary
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.eot   binary
+*.otf   binary
+*.pdf   binary
+*.zip   binary

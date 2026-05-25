@@ -1,0 +1,27 @@
+# =============================================================
+# Supabase project configuration
+# -------------------------------------------------------------
+# The two payment webhooks below MUST keep verify_jwt = false.
+#
+# NOWPayments and Paystack call these functions directly and cannot
+# present a Supabase JWT, so with verify_jwt = true the Supabase gateway
+# rejects every callback with HTTP 401 *before the function code runs* —
+# orders never complete, no proxies are provisioned, no receipt or
+# notification is created. Each function authenticates the caller itself
+# by verifying an HMAC-SHA512 signature over the raw request body.
+#
+# Keep these blocks here: `supabase functions deploy` reads them and
+# preserves the setting. Without them, a plain deploy silently resets
+# verify_jwt back to its default (true) and re-breaks crypto + card
+# payment confirmation.
+# =============================================================
+
+project_id = "xuwqhjgovdwiokubnjjd"
+
+# NOWPayments crypto IPN listener — HMAC-authenticated, no JWT.
+[functions.nowpayments-ipn-webhook]
+verify_jwt = false
+
+# Paystack card / bank-transfer webhook — HMAC-authenticated, no JWT.
+[functions.paystack-webhook]
+verify_jwt = false

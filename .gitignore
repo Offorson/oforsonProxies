@@ -1,0 +1,53 @@
+# dependencies
+node_modules
+.pnp
+.pnp.js
+
+# testing
+coverage
+
+# next.js
+.next/
+out/
+
+# production
+build
+dist
+
+# misc
+.DS_Store
+*.pem
+.vscode
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# local env files — real secrets must NEVER be committed
+.env*
+# ...but always keep the safe placeholder template tracked
+!.env.example
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# supabase (CLI-generated local state — never commit)
+supabase/.temp/
+supabase/.branches/
+supabase/.env
+
+# editors / IDE
+.idea/
+*.swp
+
+# OS files
+Thumbs.db
+ehthumbs.db
+
+# logs & misc local artifacts
+*.log
+.__probe__
+*.zip
