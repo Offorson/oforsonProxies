@@ -135,6 +135,27 @@ function friendlyCheckoutError(raw: string, currency: string): string {
   return raw;
 }
 
+/** Small inline save button used next to custom-value inputs. */
+function SaveButton({
+  onClick,
+  disabled,
+}: {
+  onClick: () => void;
+  disabled?: boolean;
+}) {
+  return (
+    <Button
+      size="sm"
+      variant="primary"
+      onClick={onClick}
+      disabled={disabled}
+      className="h-9 px-3 text-sm"
+    >
+      Save
+    </Button>
+  );
+}
+
 export function CheckoutPanel({ userId }: { userId: string }) {
   const [type, setType] = useState<ProxyType>("datacenter");
   const [exclusivity, setExclusivity] = useState<Exclusivity>("shared");
