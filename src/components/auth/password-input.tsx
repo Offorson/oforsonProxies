@@ -22,7 +22,7 @@ import { useCallback, useEffect, useId, useRef } from "react";
  *     handlers even if they sit on top of us in the DOM.
  *   - Mutates `input.type` and the button icon directly. No render needed.
  *   - Positions the button OUTSIDE the input's right-edge "danger zone"
- *     where password-manager icons live — we add right-padding to the
+ *     where password-manager icons live we add right-padding to the
  *     input and place the button inside that padded area, but with a
  *     stacking context that puts it above everything.
  *   - Inlines the eye SVGs so we don't depend on lucide-react having
@@ -133,7 +133,7 @@ export function PasswordInput({
           aria-pressed="false"
           aria-controls={inputId}
           tabIndex={0}
-          // Inline style is intentional — gives the button a guaranteed
+          // Inline style is intentional gives the button a guaranteed
           // high stacking context that no extension stylesheet can win
           // against without !important.
           style={{ zIndex: 50 }}

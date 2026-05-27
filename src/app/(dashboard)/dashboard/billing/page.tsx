@@ -60,7 +60,7 @@ export default async function BillingPage({
   const session = await getSession();
   const { status } = await searchParams;
 
-  // Live invoice history — every settled / failed / refunded payment for
+  // Live invoice history every settled / failed / refunded payment for
   // this account, newest first. No hardcoded rows.
   let invoices: PaymentRow[] = [];
   if (session?.user.id) {
@@ -96,7 +96,7 @@ export default async function BillingPage({
         <div className="mb-6 flex items-start gap-2 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
           <XCircle className="mt-0.5 h-4 w-4 shrink-0" />
           <span>
-            Checkout was cancelled — no charge was made. You can start a new
+            Checkout was cancelled no charge was made. You can start a new
             order any time.
           </span>
         </div>

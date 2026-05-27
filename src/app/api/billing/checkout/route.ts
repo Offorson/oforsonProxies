@@ -30,7 +30,7 @@ export async function POST(request: NextRequest) {
         type: "info",
       });
     } catch {
-      // service-role key missing in dev — non-fatal
+      // service-role key missing in dev non-fatal
     }
 
     return NextResponse.json({

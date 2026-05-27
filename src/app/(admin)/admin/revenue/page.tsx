@@ -103,7 +103,7 @@ export default function RevenuePage() {
       <div className="mt-6 grid gap-5 lg:grid-cols-3">
         <Card className="lg:col-span-2">
           <CardHeader>
-            <CardTitle>MRR — last 12 months</CardTitle>
+            <CardTitle>MRR last 12 months</CardTitle>
             <CardDescription>Based on active subscription start dates</CardDescription>
           </CardHeader>
           <CardContent>

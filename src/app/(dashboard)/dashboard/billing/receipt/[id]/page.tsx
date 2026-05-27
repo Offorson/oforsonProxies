@@ -90,7 +90,7 @@ function methodLabel(payment: PaymentRow, meta: Record<string, unknown>): string
   const m = (payment.payment_method || "").toLowerCase();
   if (m === "crypto") return "Cryptocurrency";
   if (m === "card") return "Card";
-  return m ? m.charAt(0).toUpperCase() + m.slice(1) : "—";
+  return m ? m.charAt(0).toUpperCase() + m.slice(1) : "-";
 }
 
 function countryName(code: string): string {
@@ -208,7 +208,7 @@ export default async function ReceiptPage({
 
   const lineItem =
     payment.description ||
-    (order ? `${productLabel(proxyType)} — ${APP_NAME}` : "Proxy purchase");
+    (order ? `${productLabel(proxyType)} ${APP_NAME}` : "Proxy purchase");
 
   return (
     <>
@@ -353,7 +353,7 @@ export default async function ReceiptPage({
                 <span className="font-semibold text-ink-900">
                   {money(chargeAmount, chargeCurrency)}
                 </span>{" "}
-                — the {usdCurrency} total above was converted at a live
+                the {usdCurrency} total above was converted at a live
                 exchange rate
                 {fxRate > 0 ? ` of ${fxRate.toFixed(4)} ${chargeCurrency}/${usdCurrency}` : ""}.
               </p>

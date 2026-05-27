@@ -111,10 +111,10 @@ export default function AuditPage() {
                     <Badge variant="brand">{l.action_type}</Badge>
                   </td>
                   <td className="px-6 py-4 text-ink-700 text-xs">
-                    {l.affected_email ?? (l.affected_user_id ? l.affected_user_id.slice(0, 8) + "…" : "—")}
+                    {l.affected_email ?? (l.affected_user_id ? l.affected_user_id.slice(0, 8) + "…" : "-")}
                   </td>
                   <td className="px-6 py-4 text-ink-700">{l.description}</td>
-                  <td className="px-6 py-4 font-mono text-xs text-ink-500">{l.ip_address ?? "—"}</td>
+                  <td className="px-6 py-4 font-mono text-xs text-ink-500">{l.ip_address ?? "-"}</td>
                 </tr>
               ))}
             </tbody>

@@ -9,35 +9,19 @@ import { Logo } from "./logo";
 import { SidebarNav } from "./sidebar";
 import type { NavItem } from "@/constants/nav";
 
-/**
- * Mobile navigation for the dashboard / admin areas. The desktop sidebar
- * is hidden below `lg`, so on small screens this renders a hamburger
- * button in the top bar that opens a slide-in drawer with the same nav.
- *
- * The drawer is rendered through a portal into `document.body`. The top
- * bar that hosts this component uses `backdrop-blur`, and any element
- * with a `backdrop-filter` becomes the containing block for
- * `position: fixed` descendants. Left inline, the `fixed inset-0`
- * overlay would be clipped to the 64px-tall header instead of filling
- * the viewport — which collapsed the drawer down to just its header.
- * Portaling to `<body>` escapes that containing block.
- */
 export function MobileSidebar({ items }: { items: NavItem[] }) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const pathname = usePathname();
 
-  // Portals require the DOM — only render the drawer after mount.
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  // Close the drawer whenever the route changes.
   useEffect(() => {
     setOpen(false);
   }, [pathname]);
 
-  // Lock body scroll and allow Escape-to-close while the drawer is open.
   useEffect(() => {
     if (!open) return;
     const prev = document.body.style.overflow;
@@ -77,26 +61,27 @@ export function MobileSidebar({ items }: { items: NavItem[] }) {
                   onClick={() => setOpen(false)}
                   className="absolute inset-0 bg-ink-900/50 backdrop-blur-sm"
                 />
-
                 {/* Drawer */}
                 <motion.aside
                   initial={{ x: "-100%" }}
                   animate={{ x: 0 }}
                   exit={{ x: "-100%" }}
-                  transition={{ type: "tween", duration: 0.25, ease: "easeOut" }}
-                  className="absolute left-0 top-0 flex h-full w-72 max-w-[85vw] flex-col bg-white shadow-xl"
+                  transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  className="absolute inset-y-0 left-0 w-72 bg-white shadow-xl flex flex-col"
                 >
-                  <div className="flex items-center justify-between border-b border-ink-100 px-5 py-5">
+                  <div className="flex items-center justify-between px-4 py-4 border-b border-ink-100">
                     <Logo />
                     <button
                       onClick={() => setOpen(false)}
                       className="rounded-lg p-2 text-ink-500 hover:bg-ink-100 transition"
-                      aria-label="Close navigation menu"
+                      aria-label="Close menu"
                     >
                       <X className="h-5 w-5" />
                     </button>
                   </div>
-                  <SidebarNav items={items} onNavigate={() => setOpen(false)} />
+                  <div className="flex-1 overflow-y-auto py-4 px-3">
+                    <SidebarNav items={items} />
+                  </div>
                 </motion.aside>
               </div>
             )}

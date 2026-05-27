@@ -49,7 +49,10 @@ export async function signUpAction(
       email,
       password,
       options: {
-        data: { username },
+        // `display_name` populates the "Display name" column in the Supabase
+        // Auth dashboard. We keep `username` too so existing code that reads
+        // it (e.g. settings page) continues to work.
+        data: { username, display_name: username },
         emailRedirectTo: `${origin}/api/auth/callback?next=/dashboard`,
       },
     });

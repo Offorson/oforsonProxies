@@ -18,7 +18,7 @@ import { createServerSupabase } from "@/lib/supabase/server";
  *
  * If the QA users exist in auth but have NO subscription / proxy /
  * bandwidth rows, that's why the dashboard renders identically no
- * matter who you sign in as — the seed data half of
+ * matter who you sign in as the seed data half of
  * 006_qa_seed.sql never landed in this project.
  *
  * QA-only.
@@ -124,7 +124,7 @@ export async function GET() {
         subscriptions: 0,
         proxy_sessions_active: 0,
         bandwidth_usage_rows: 0,
-        notes: ["Profile row missing — run 006_qa_seed.sql"],
+        notes: ["Profile row missing run 006_qa_seed.sql"],
       });
       continue;
     }
@@ -147,7 +147,7 @@ export async function GET() {
       ]);
 
     if ((subCount ?? 0) === 0 && !profile.is_admin) {
-      notes.push("No subscription — dashboard will look empty for this user");
+      notes.push("No subscription dashboard will look empty for this user");
     }
     if ((psCount ?? 0) === 0 && !profile.is_admin) {
       notes.push("No active proxy_sessions");

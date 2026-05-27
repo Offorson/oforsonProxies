@@ -29,9 +29,9 @@ export const STANDARD_BANDWIDTH_TIERS = [250, 1000, 5000] as const;
  * Replacement add-on options
  *
  * The "Replacement" add-on bundles two Webshare features:
- *   • Recurring Replacements — the whole proxy list auto-refreshes on a
+ *   • Recurring Replacements the whole proxy list auto-refreshes on a
  *     schedule. Stored as a frequency in seconds (0 = off).
- *   • Manual Replacements — a pool of one-off swaps the customer can
+ *   • Manual Replacements a pool of one-off swaps the customer can
  *     trigger themselves. Stored as a count of IPs.
  * ------------------------------------------------------------------ */
 

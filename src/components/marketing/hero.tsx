@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Globe2, Activity, Wifi, Zap } from "lucide-react";
+import { ArrowRight, Globe2, Activity, Wifi, Zap } from "lucide-react";
 import { WorldMap } from "./world-map";
 import { cn } from "@/utils/cn";
 
@@ -26,14 +26,13 @@ export function Hero() {
           className="max-w-4xl mx-auto text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-500/10 backdrop-blur-sm px-4 py-1.5 text-xs font-medium text-cyan-300 shadow-lg">
-            <Sparkles className="h-3.5 w-3.5" />
-            Residential, ISP & datacenter proxies — one dashboard
+            Residential, ISP &amp; datacenter proxies, one dashboard
           </div>
 
           <h1 className="mt-6 text-balance text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.05]">
             Global{" "}
             <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-              Residential & Datacenter
+              Residential &amp; Datacenter
             </span>
             <br className="hidden sm:block" /> Proxies
           </h1>
@@ -108,7 +107,7 @@ export function Hero() {
 
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex items-center gap-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-md px-5 py-2 text-xs text-slate-300 whitespace-nowrap">
         <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-        All systems operational &mdash; last checked 30s ago
+        All systems operational, last checked 30s ago
       </div>
       */}
     </section>
@@ -124,7 +123,7 @@ interface FloatingCardProps {
 }
 
 /**
- * Floating live-metric card used in the hero. Currently unused — the hero's
+ * Floating live-metric card used in the hero. Currently unused; the hero's
  * metric cards are hidden until the figures are backed by real telemetry.
  * Kept so the cards can be restored by un-commenting the block above.
  */
@@ -133,18 +132,18 @@ function FloatingCard({ className, icon, label, value, delta }: FloatingCardProp
   return (
     <div
       className={cn(
-        "flex items-center gap-3 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl px-4 py-3 shadow-2xl",
+        "flex items-center gap-3 rounded-2xl border border-white/10 bg-[#060e1a]/80 backdrop-blur-md px-4 py-3 text-white shadow-lg",
         className
       )}
     >
-      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/10">
+      <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10">
         {icon}
       </div>
       <div>
-        <p className="text-[10px] font-medium uppercase tracking-widest text-slate-400">{label}</p>
-        <p className="text-sm font-bold text-white">{value}</p>
-        <p className="text-[10px] text-emerald-400">{delta}</p>
+        <p className="text-[10px] uppercase tracking-wide text-slate-400">{label}</p>
+        <p className="text-sm font-semibold">{value}</p>
       </div>
+      <span className="ml-auto text-[10px] text-emerald-400">{delta}</span>
     </div>
   );
 }

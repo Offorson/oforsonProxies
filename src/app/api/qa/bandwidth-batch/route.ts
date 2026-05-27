@@ -15,7 +15,7 @@ import { createAdminClient } from "@/lib/supabase/admin";
  *   4. Writes a notification row when the user crosses 80% or hits the cap
  *
  * QA mode is the production gate. In QA mode any signed-in user can call
- * this — important because the harness routinely signs you in as a non-admin
+ * this important because the harness routinely signs you in as a non-admin
  * test user mid-session.
  */
 
@@ -102,7 +102,7 @@ export async function POST(request: NextRequest) {
       const pct = cap > 0 ? (usedGb / cap) * 100 : 0;
       const overCap = usedGb > cap;
 
-      // QA: fires duplicates if you hammer the button — fine. Real impl
+      // QA: fires duplicates if you hammer the button fine. Real impl
       // should debounce via a last_threshold_notified column.
       if (overCap) {
         await admin.from("notifications").insert({

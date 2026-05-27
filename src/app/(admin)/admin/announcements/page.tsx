@@ -10,9 +10,9 @@ import { Modal } from "@/components/ui/modal";
 import { Input } from "@/components/ui/input";
 
 const ANNOUNCEMENTS = [
-  { id: "ann_1", title: "Scheduled maintenance — Jun 1, 02:00 UTC", level: "info" as const, body: "Brief 30-minute downtime on the EU edge.", published: "2 days ago" },
+  { id: "ann_1", title: "Scheduled maintenance Jun 1, 02:00 UTC", level: "info" as const, body: "Brief 30-minute downtime on the EU edge.", published: "2 days ago" },
   { id: "ann_2", title: "New rotating residential pool in LATAM", level: "info" as const, body: "Adds 4M+ Brazil and Mexico IPs.", published: "1 week ago" },
-  { id: "ann_3", title: "Incident — elevated latency on US-East", level: "incident" as const, body: "Resolved after 14 minutes. Postmortem published.", published: "2 weeks ago" }
+  { id: "ann_3", title: "Incident elevated latency on US-East", level: "incident" as const, body: "Resolved after 14 minutes. Postmortem published.", published: "2 weeks ago" }
 ];
 
 const variantFor = (l: string) => (l === "incident" ? "danger" : l === "warning" ? "warning" : "brand");

@@ -1,5 +1,5 @@
 /**
- * Upstream proxy pool wrapper — powers all proxy products.
+ * Upstream proxy pool wrapper powers all proxy products.
  * Internal module; the upstream provider is never surfaced to end users.
  */
 
@@ -13,7 +13,7 @@ const BASE = process.env.WEBSHARE_BASE_URL || "https://proxy.webshare.io/api/v2"
 const RESIDENTIAL_HOST = process.env.WEBSHARE_RESIDENTIAL_HOST || "p.webshare.io";
 const RESIDENTIAL_PORT = Number(process.env.WEBSHARE_RESIDENTIAL_PORT) || 80;
 
-/** Mock Gateway toggle — see .env (`USE_MOCK_API`). */
+/** Mock Gateway toggle see .env (`USE_MOCK_API`). */
 function mockEnabled() {
   return process.env.USE_MOCK_API === "true";
 }
@@ -52,7 +52,7 @@ const MOCK_CITIES = [
   "New York",
 ];
 
-/** A single rotating-gateway credential set — powers rotating residential. */
+/** A single rotating-gateway credential set powers rotating residential. */
 export interface WebshareGatewayProxy {
   host: string;
   port: number;
@@ -115,7 +115,7 @@ export const webshare = {
   },
 
   /**
-   * Build credentials for the residential rotating gateway — the path for
+   * Build credentials for the residential rotating gateway the path for
    * rotating residential proxies. The exit IP rotates on every request;
    * pass a sessionId to pin a sticky IP for that session's lifetime.
    * Country targeting and session pinning are encoded as username modifiers:

@@ -18,7 +18,7 @@ export async function GET() {
       authedUser = { id: data.user.id, email: data.user.email ?? null };
     }
   } catch {
-    /* ignore — fetchUserDashboardData handles its own fallbacks */
+    /* ignore fetchUserDashboardData handles its own fallbacks */
   }
 
   try {

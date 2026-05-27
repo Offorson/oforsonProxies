@@ -2,13 +2,13 @@ import { NextResponse, type NextRequest } from "next/server";
 import { createAdminClient } from "@/lib/supabase/admin";
 
 /**
- * Stripe webhook — recurring-billing lifecycle hook.
+ * Stripe webhook recurring-billing lifecycle hook.
  *
  * This is the entry point for Stripe's recurring-billing events. The
  * heavy lifting (suspending proxy credentials, holding the IPs for the
  * 48-hour grace window, sending the grace-period email, and the final
  * hard-drop) is all done by database triggers in migration 014. This
- * route only has to move public.subscriptions.status — everything
+ * route only has to move public.subscriptions.status everything
  * downstream is automatic:
  *
  *   invoice.payment_failed          -> status = 'past_due'

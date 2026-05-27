@@ -8,7 +8,7 @@ import { FadeIn } from "@/components/animations/fade-in";
 const FAQS = [
   {
     q: "What's the difference between static and rotating residential?",
-    a: "Static (ISP) residential IPs stay assigned to you for the duration of your subscription — great for account-bound workflows. Rotating residential pulls a fresh IP from a large residential pool on each request, optimal for scraping at scale."
+    a: "Static (ISP) residential IPs stay assigned to you for the duration of your subscription, great for account-bound workflows. Rotating residential pulls a fresh IP from a large residential pool on each request, optimal for scraping at scale."
   },
   {
     q: "How is billing calculated?",
@@ -16,7 +16,7 @@ const FAQS = [
   },
   {
     q: "Do you offer a free option?",
-    a: "A free starter tier is on the way — new accounts will be able to claim a small allocation of datacenter proxies to test the platform. No credit card required."
+    a: "A free starter tier is on the way. New accounts will be able to claim a small allocation of datacenter proxies to test the platform. No credit card required."
   },
   {
     q: "Can I target specific countries?",

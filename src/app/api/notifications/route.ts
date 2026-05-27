@@ -7,8 +7,8 @@ export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 
 /**
- * GET  /api/notifications        — list the most recent 20 notifications + unread count.
- * POST /api/notifications        — mark one or many as read (or all when { all: true }).
+ * GET  /api/notifications        list the most recent 20 notifications + unread count.
+ * POST /api/notifications        mark one or many as read (or all when { all: true }).
  */
 
 export async function GET() {

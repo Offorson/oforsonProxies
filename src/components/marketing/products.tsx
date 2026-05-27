@@ -69,7 +69,7 @@ export function Products() {
             One platform. Every proxy type you need.
           </h2>
           <p className="mt-4 text-lg text-ink-600">
-            Static, rotating, datacenter — purpose-built for your toughest data workloads.
+            Static, rotating, datacenter, purpose-built for your toughest data workloads.
           </p>
         </FadeIn>
 
@@ -94,19 +94,6 @@ export function Products() {
                   <h3 className="mt-5 text-xl font-semibold text-ink-900">{p.name}</h3>
                   <p className="mt-1 text-xs font-medium text-ink-500">{p.powered}</p>
                   <p className="mt-3 text-sm text-ink-600 leading-relaxed">{p.description}</p>
-
-                  {/*
-                    HIDDEN: per-product stat tiles (speed / IP pool / countries).
-                    These show placeholder figures — restore the block below
-                    once the numbers reflect real network capacity.
-                  */}
-                  {/*
-                  <div className="mt-5 grid grid-cols-3 gap-2 text-center">
-                    <Stat label="Speed" value={p.speed} />
-                    <Stat label="IP pool" value={p.pool} />
-                    <Stat label="Countries" value={p.countries} />
-                  </div>
-                  */}
 
                   <ul className="mt-5 space-y-2 flex-1">
                     {p.features.map((f) => (
@@ -136,9 +123,9 @@ export function Products() {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-xl border border-ink-100 bg-ink-50/60 px-2 py-2">
-      <p className="text-[10px] uppercase tracking-wider text-ink-500">{label}</p>
-      <p className="text-xs font-semibold text-ink-900 mt-0.5">{value}</p>
+    <div className="rounded-xl bg-ink-50 p-2">
+      <p className="text-[10px] uppercase tracking-wide text-ink-500">{label}</p>
+      <p className="mt-0.5 text-sm font-semibold text-ink-900">{value}</p>
     </div>
   );
 }

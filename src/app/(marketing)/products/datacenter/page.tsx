@@ -8,7 +8,7 @@ export default function Page() {
       slug="datacenter"
       eyebrow="Datacenter"
       title="Dedicated, ultra-fast datacenter IPs"
-      subtitle="The most affordable way to scale — high throughput, high concurrency, and dedicated IPs."
+      subtitle="The most affordable way to scale. High throughput, high concurrency, and dedicated IPs."
       features={[
         "Dedicated IP addresses",
         "Low-latency connections",

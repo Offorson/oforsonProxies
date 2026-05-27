@@ -2,7 +2,7 @@ import { PageHeader } from "@/components/dashboard/page-header";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { createServerSupabase } from "@/lib/supabase/server";
-import { ProfileForm, PasswordForm } from "./settings-forms";
+import { ProfileForm, PasswordForm, DeleteAccountCard } from "./settings-forms";
 
 export const metadata = { title: "Settings" };
 export const dynamic = "force-dynamic";
@@ -31,10 +31,10 @@ export default async function SettingsPage() {
       <PageHeader title="Settings" description="Manage your account, security and preferences." />
 
       <div className="space-y-6 max-w-3xl">
-        {/* Profile form — client component with real save action */}
+        {/* Profile form client component with real save action */}
         <ProfileForm displayName={displayName} email={email} />
 
-        {/* Password form — client component with real update action */}
+        {/* Password form client component with real update action */}
         <PasswordForm />
 
         <Card>
@@ -71,15 +71,7 @@ export default async function SettingsPage() {
           </CardContent>
         </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle className="text-rose-700">Danger zone</CardTitle>
-            <CardDescription>Permanent account actions.</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <Button variant="danger">Delete account</Button>
-          </CardContent>
-        </Card>
+        <DeleteAccountCard email={email} />
       </div>
     </>
   );

@@ -99,7 +99,7 @@ export async function POST(request: NextRequest) {
           currency: "usd",
           status: "succeeded",
           invoice_url: `https://stripe.test/invoice/qa_${Date.now()}`,
-          description: `${body.plan} plan — manual simulate`,
+          description: `${body.plan} plan manual simulate`,
           stripe_invoice_id: `in_qa_${Date.now()}`,
         });
         await admin.from("notifications").insert({
@@ -118,7 +118,7 @@ export async function POST(request: NextRequest) {
           currency: "usd",
           status: "failed",
           invoice_url: null,
-          description: `${body.plan} plan — payment failed`,
+          description: `${body.plan} plan payment failed`,
           stripe_invoice_id: `in_qa_fail_${Date.now()}`,
         });
         await admin

@@ -12,14 +12,14 @@ interface StatProps {
 
 export function Stat({ label, value, delta, hint, icon, className }: StatProps) {
   return (
-    <div className={cn("rounded-2xl border border-ink-200 bg-white p-5 shadow-soft", className)}>
-      <div className="flex items-start justify-between">
-        <div>
-          <p className="text-sm text-ink-500">{label}</p>
-          <p className="mt-2 text-2xl font-bold tracking-tight text-ink-900">{value}</p>
+    <div className={cn("rounded-2xl border border-ink-200 bg-white p-3.5 sm:p-5 shadow-soft", className)}>
+      <div className="flex items-start justify-between gap-2">
+        <div className="min-w-0">
+          <p className="text-xs sm:text-sm text-ink-500 truncate">{label}</p>
+          <p className="mt-1.5 sm:mt-2 text-xl sm:text-2xl font-bold tracking-tight text-ink-900 truncate">{value}</p>
         </div>
         {icon && (
-          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-blue-50 text-brand-600">
+          <div className="hidden sm:flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-brand-50 to-blue-50 text-brand-600 shrink-0">
             {icon}
           </div>
         )}

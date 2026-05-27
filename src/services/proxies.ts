@@ -1,6 +1,6 @@
 /**
  * Higher-level proxy provisioning service.
- * Every proxy type is served by Webshare — our sole upstream provider — so
+ * Every proxy type is served by Webshare our sole upstream provider so
  * the rest of the app stays provider-agnostic and the supplier is never
  * exposed to end users.
  */
@@ -57,7 +57,7 @@ export const proxyService = {
           username: gw.username,
           password: gw.password,
           country: gw.country,
-          // Rotating residential is a single gateway endpoint — it has no
+          // Rotating residential is a single gateway endpoint it has no
           // fixed city; the exit IP (and its city) rotates per request.
           city: null,
           lastChecked: new Date().toISOString(),

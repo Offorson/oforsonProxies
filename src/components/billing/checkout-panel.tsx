@@ -53,17 +53,17 @@ const EXCLUSIVITY_OPTIONS: {
   {
     value: "shared",
     label: "Shared",
-    desc: "Pooled IPs — shared with more than two other users.",
+    desc: "Pooled IPs shared with more than two other users.",
   },
   {
     value: "private",
     label: "Private",
-    desc: "Semi-dedicated — a small private pool, only a couple of users.",
+    desc: "Semi-dedicated a small private pool, only a couple of users.",
   },
   {
     value: "dedicated",
     label: "Dedicated",
-    desc: "Fully yours — these IPs are owned by you and nobody else.",
+    desc: "Fully yours these IPs are owned by you and nobody else.",
   },
 ];
 
@@ -114,7 +114,7 @@ function describeFrequency(seconds: number): string {
  * Turn a raw checkout error into something a customer can act on.
  *
  * The most common one is Paystack's HTTP 403 "Currency not supported by
- * merchant" — that comes back as a raw JSON dump from the edge function.
+ * merchant" that comes back as a raw JSON dump from the edge function.
  * A Paystack account only settles the currencies it has been enabled for,
  * so charging an un-enabled currency always fails until it is turned on
  * in the Paystack dashboard.
@@ -128,7 +128,7 @@ function friendlyCheckoutError(raw: string, currency: string): string {
     return (
       `Card payments in ${currency} aren't enabled on your Paystack ` +
       `account yet, so the charge was declined. Switch the charge currency ` +
-      `to NGN to check out right away — or enable ${currency} on Paystack ` +
+      `to NGN to check out right away or enable ${currency} on Paystack ` +
       `(Settings → Preferences, or contact Paystack support) and try again.`
     );
   }
@@ -148,11 +148,11 @@ export function CheckoutPanel({ userId }: { userId: string }) {
   const [qty, setQty] = useState(100);
   const [gb, setGb] = useState(50);
 
-  // Add-ons — resold straight from Webshare's subscription page.
+  // Add-ons resold straight from Webshare's subscription page.
   // The "Replacement" add-on stays collapsed until tapped, keeping the
   // panel clean. It bundles two Webshare features:
-  //   • Recurring Replacements — auto-refresh frequency, in seconds.
-  //   • Manual Replacements    — a pool of one-off proxy swaps.
+  //   • Recurring Replacements auto-refresh frequency, in seconds.
+  //   • Manual Replacements    a pool of one-off proxy swaps.
   const [replacementOpen, setReplacementOpen] = useState(false);
 
   const [recurringMode, setRecurringMode] = useState<"preset" | "custom">(
@@ -170,7 +170,7 @@ export function CheckoutPanel({ userId }: { userId: string }) {
 
   const [highPriorityNetwork, setHighPriorityNetwork] = useState(false);
 
-  // In-app add-on guide — opened from the info icons. It renders over the
+  // In-app add-on guide opened from the info icons. It renders over the
   // billing page without unmounting it, so checkout state is preserved.
   const [faqOpen, setFaqOpen] = useState(false);
   const [faqFocus, setFaqFocus] = useState<AddonFaqId | null>(null);
@@ -238,7 +238,7 @@ export function CheckoutPanel({ userId }: { userId: string }) {
   function pickRecurringCustom() {
     setRecurringMode("custom");
     // Selecting Custom applies whatever is currently in the draft (0 by
-    // default — i.e. no refresh) until the customer Saves a value.
+    // default i.e. no refresh) until the customer Saves a value.
     setRecurringSeconds(recurringDraftSeconds);
   }
   function saveRecurringCustom() {
@@ -456,7 +456,7 @@ export function CheckoutPanel({ userId }: { userId: string }) {
             <div>
               <CardTitle>Buy proxies</CardTitle>
               <CardDescription>
-                Customize your package — price updates live, and the more you
+                Customize your package price updates live, and the more you
                 buy the lower your per-unit rate.
               </CardDescription>
             </div>
@@ -548,7 +548,7 @@ export function CheckoutPanel({ userId }: { userId: string }) {
                 {type === "datacenter" && (
                   <p className="mt-1 flex items-start gap-1 text-xs text-brand-600">
                     <Info className="mt-0.5 h-3 w-3 shrink-0" />
-                    Datacenter has a minimum order — 1 to 10 proxies are priced
+                    Datacenter has a minimum order 1 to 10 proxies are priced
                     the same, so 10 gives the best value per proxy.
                   </p>
                 )}
@@ -674,7 +674,7 @@ export function CheckoutPanel({ userId }: { userId: string }) {
               <p className="mt-1 flex items-start gap-1 text-xs text-ink-400">
                 <Info className="mt-0.5 h-3 w-3 shrink-0" />
                 {bandwidthMode === "unlimited"
-                  ? "No bandwidth cap — proxies never throttle."
+                  ? "No bandwidth cap proxies never throttle."
                   : "If a proxy goes over its bandwidth tier it stops working until the plan renews."}
               </p>
             </div>
@@ -685,11 +685,11 @@ export function CheckoutPanel({ userId }: { userId: string }) {
             <div className="rounded-xl border border-ink-200 p-4">
               <p className="text-sm font-medium text-ink-800">Add-ons</p>
               <p className="text-xs text-ink-500">
-                Optional extras — add what you need and the price updates
+                Optional extras add what you need and the price updates
                 instantly.
               </p>
               <div className="mt-3 space-y-3">
-                {/* Replacement — tap the container to reveal the options. */}
+                {/* Replacement tap the container to reveal the options. */}
                 <div className="rounded-xl border border-ink-200">
                   <button
                     type="button"
@@ -885,7 +885,7 @@ export function CheckoutPanel({ userId }: { userId: string }) {
                             <p className="mt-1.5 text-[11px] text-ink-400">
                               Up to{" "}
                               {MANUAL_REPLACEMENT_MAX.toLocaleString()}{" "}
-                              replacements — unused swaps stay available all
+                              replacements unused swaps stay available all
                               plan.
                             </p>
                           </div>
@@ -935,7 +935,7 @@ export function CheckoutPanel({ userId }: { userId: string }) {
             <TrendingDown className="mt-0.5 h-4 w-4 shrink-0 text-emerald-600" />
             <p className="text-xs text-emerald-800">
               <span className="font-semibold">Buy more, pay less.</span> Volume
-              pricing is automatic — the more {isBandwidth ? "GB" : "proxies"}{" "}
+              pricing is automatic the more {isBandwidth ? "GB" : "proxies"}{" "}
               you add, the lower your per-{unitLabel} rate.
             </p>
           </div>
@@ -1027,8 +1027,7 @@ export function CheckoutPanel({ userId }: { userId: string }) {
 
             {payMethod === "bank_transfer" && (
               <p className="mt-2 text-xs text-ink-400">
-                Charged in Nigerian Naira (₦) via Paystack bank transfer —
-                converted from USD at the live exchange rate.
+                Charged in Nigerian Naira (₦) via Paystack bank transfer, converted from USD at the live exchange rate.
               </p>
             )}
           </div>
@@ -1072,7 +1071,7 @@ export function CheckoutPanel({ userId }: { userId: string }) {
                     </p>
                   </>
                 ) : (
-                  <span className="text-sm text-ink-400">—</span>
+                  <span className="text-sm text-ink-400">-</span>
                 )}
               </div>
             </div>
@@ -1137,7 +1136,7 @@ export function CheckoutPanel({ userId }: { userId: string }) {
         </CardContent>
       </Card>
 
-      {/* In-app add-on guide — overlays the billing page, never unmounts it. */}
+      {/* In-app add-on guide overlays the billing page, never unmounts it. */}
       <AddonInfoPanel
         open={faqOpen}
         focusId={faqFocus}
@@ -1196,44 +1195,15 @@ function OptionTile({
       className={`relative rounded-xl border px-2 py-2.5 text-center text-xs font-medium leading-tight transition ${
         active
           ? "border-brand-400 bg-brand-50/50 text-ink-900 ring-2 ring-brand-500/10"
-          : "border-ink-200 text-ink-600 hover:border-ink-300"
+          : "border-ink-200 text-ink-600 hover:border-ink-300 hover:bg-ink-50"
       }`}
     >
       {popular && (
-        <span className="absolute -top-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-emerald-100 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-emerald-700">
+        <span className="absolute -top-2 left-1/2 -translate-x-1/2 rounded-full bg-brand-500 px-2 py-0.5 text-[10px] font-semibold text-white">
           Popular
         </span>
       )}
-      {active && (
-        <span className="absolute -right-1.5 -top-1.5 flex h-4 w-4 items-center justify-center rounded-full bg-brand-500 text-white">
-          <Check className="h-2.5 w-2.5" />
-        </span>
-      )}
       {label}
-    </button>
-  );
-}
-
-/** The compact green Save button used inside the custom editors. */
-function SaveButton({
-  onClick,
-  disabled,
-}: {
-  onClick: () => void;
-  disabled: boolean;
-}) {
-  return (
-    <button
-      type="button"
-      onClick={onClick}
-      disabled={disabled}
-      className={`h-9 shrink-0 rounded-xl px-4 text-sm font-semibold transition ${
-        disabled
-          ? "cursor-not-allowed bg-ink-100 text-ink-400"
-          : "bg-brand-500 text-white hover:bg-brand-600"
-      }`}
-    >
-      Save
     </button>
   );
 }

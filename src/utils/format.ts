@@ -1,5 +1,5 @@
 /**
- * Formatting helpers — bytes, currency, percent, dates.
+ * Formatting helpers bytes, currency, percent, dates.
  */
 
 export function formatBytes(bytes: number, decimals = 1) {

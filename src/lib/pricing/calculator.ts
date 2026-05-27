@@ -7,7 +7,7 @@ export type ProductType =
 
 export type BillingUnit = "proxy" | "bandwidth_gb";
 
-/** Network exclusivity tier — maps onto a Webshare proxy_type. */
+/** Network exclusivity tier maps onto a Webshare proxy_type. */
 export type Exclusivity = "shared" | "private" | "dedicated";
 
 /**
@@ -26,7 +26,7 @@ export const MIN_SUBUSERS = 3;
 
 /**
  * Upper guardrail for a Recurring Replacement frequency, in seconds.
- * 366 days — comfortably above the slowest preset (monthly).
+ * 366 days comfortably above the slowest preset (monthly).
  */
 export const RECURRING_FREQUENCY_MAX = 366 * 24 * 60 * 60;
 
@@ -41,7 +41,7 @@ export interface RawCheckoutConfig {
   qty?: number | string;
   quantity?: number | string;
   gb?: number | string;
-  /** Legacy boolean — superseded by `exclusivity`, kept for back-compat. */
+  /** Legacy boolean superseded by `exclusivity`, kept for back-compat. */
   dedicated?: boolean;
   /** "shared" | "private" | "dedicated". */
   exclusivity?: string;
@@ -49,9 +49,9 @@ export interface RawCheckoutConfig {
   unlimited?: boolean;
   /** Chosen standard bandwidth tier (proxy-billed products). */
   standardGb?: number | string;
-  /** Add-on: Manual Replacements — proxy replacements included. */
+  /** Add-on: Manual Replacements proxy replacements included. */
   proxyReplacements?: number | string;
-  /** Add-on: Recurring Replacements — auto-refresh frequency, in seconds. */
+  /** Add-on: Recurring Replacements auto-refresh frequency, in seconds. */
   automaticRefreshFrequency?: number | string;
   /** Add-on: high-priority network upgrade. */
   highPriorityNetwork?: boolean;
@@ -68,9 +68,9 @@ export interface CheckoutConfig {
   unlimited: boolean;
   /** Resolved standard bandwidth tier in GB (proxy-billed products). */
   standardGb: number;
-  /** Manual Replacements — proxy replacements included. */
+  /** Manual Replacements proxy replacements included. */
   proxyReplacements: number;
-  /** Recurring Replacements — auto-refresh frequency, in seconds (0 = off). */
+  /** Recurring Replacements auto-refresh frequency, in seconds (0 = off). */
   automaticRefreshFrequency: number;
   highPriorityNetwork: boolean;
 }
@@ -84,7 +84,7 @@ export interface ConfigurationRule {
   webshare_subtype_dedicated: string;
   webshare_type_shared: string;
   webshare_type_dedicated: string;
-  /** Private (semi-dedicated) exclusivity mapping — migration 016. */
+  /** Private (semi-dedicated) exclusivity mapping migration 016. */
   supports_private?: boolean;
   webshare_type_private?: string | null;
   webshare_subtype_private?: string | null;
@@ -277,10 +277,10 @@ export function buildWebsharePricingQuery(
     proxy_subtype: proxySubtype,
     proxy_countries: { [countryCode]: config.qty },
     bandwidth_limit: bandwidthLimit,
-    // On-demand refreshes are no longer resold — Webshare rejects this
+    // On-demand refreshes are no longer resold Webshare rejects this
     // field above 0 for these plans, so it is pinned at 0.
     on_demand_refreshes_total: 0,
-    // Recurring Replacements add-on — auto-refresh frequency in seconds.
+    // Recurring Replacements add-on auto-refresh frequency in seconds.
     automatic_refresh_frequency: config.automaticRefreshFrequency,
     // Manual Replacements add-on.
     proxy_replacements_total: config.proxyReplacements,
@@ -347,8 +347,8 @@ export async function priceCheckout(
     );
   }
 
-  // Our profit margin is applied to the full live wholesale cost — which
-  // already includes whatever add-ons the customer selected — so every
+  // Our profit margin is applied to the full live wholesale cost which
+  // already includes whatever add-ons the customer selected so every
   // resold add-on carries the same structural markup.
   const retailPrice = round2(wholesaleCost * marginMultiplier);
 

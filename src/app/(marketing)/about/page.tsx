@@ -10,12 +10,12 @@ export default function AboutPage() {
         </h1>
         <p className="mt-6 text-lg text-ink-600 leading-relaxed">
           Oforson Proxies makes residential, ISP, and datacenter proxy infrastructure
-          accessible to teams that depend on accurate, geo-aware data — with transparent,
+          accessible to teams that depend on accurate, geo-aware data with transparent,
           usage-based pricing and a dashboard that is genuinely pleasant to use.
         </p>
         <p className="mt-4 text-lg text-ink-600 leading-relaxed">
           We are an independent, early-stage team. The platform is in active development
-          as we onboard our first customers — if that is you, we would love your feedback.
+          as we onboard our first customers if that is you, we would love your feedback.
         </p>
       </div>
     </section>

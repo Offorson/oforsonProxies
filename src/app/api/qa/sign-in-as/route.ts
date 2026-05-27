@@ -7,7 +7,7 @@ import { z } from "zod";
  *
  * The sandbox harness now signs in client-side (the browser Supabase
  * client writes session cookies straight to document.cookie). This
- * endpoint is the optional server-side equivalent — useful for scripts
+ * endpoint is the optional server-side equivalent useful for scripts
  * or curl.
  *
  * Cookies that Supabase wants to set are collected into a local array
@@ -104,7 +104,7 @@ export async function POST(request: NextRequest) {
           ok: false,
           error: error.message,
           hint: error.message?.toLowerCase().includes("invalid")
-            ? "Run database/migrations/006_qa_seed.sql — the seeded password is TestPass!2026."
+            ? "Run database/migrations/006_qa_seed.sql the seeded password is TestPass!2026."
             : undefined,
         },
         { status: 400 }

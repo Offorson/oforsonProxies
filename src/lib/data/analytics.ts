@@ -3,7 +3,7 @@
  *
  * Everything here is derived from the signed-in user's real rows in
  * Supabase (bandwidth_usage + proxy_sessions). A brand-new account with no
- * usage correctly shows zeros — there is no mock/placeholder data.
+ * usage correctly shows zeros there is no mock/placeholder data.
  *
  * Mirrors the resilient query pattern in src/lib/data/dashboard.ts: every
  * Supabase round-trip is wrapped in a timeout so a slow database can never

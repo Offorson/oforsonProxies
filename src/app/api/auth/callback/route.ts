@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { createServerSupabase } from "@/lib/supabase/server";
 
 /**
- * OAuth callback handler — exchanges the code for a session and redirects.
+ * OAuth callback handler exchanges the code for a session and redirects.
  */
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);

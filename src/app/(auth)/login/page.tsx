@@ -2,7 +2,7 @@ import { GoogleButton } from "@/components/auth/oauth-buttons";
 import { LoginForm } from "@/components/auth/login-form";
 import Link from "next/link";
 
-export const metadata = { title: "Log in — OforsonProxies" };
+export const metadata = { title: "Log in OforsonProxies" };
 
 export default async function LoginPage({
   searchParams,

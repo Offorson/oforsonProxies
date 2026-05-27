@@ -5,7 +5,7 @@ import { PageHeader } from "@/components/dashboard/page-header";
 import { DashboardLive } from "@/components/dashboard/dashboard-live";
 import { ProxyIntegration } from "@/components/dashboard/proxy-integration";
 
-// The page itself is a pure UI shell — synchronous, zero awaits, zero DB
+// The page itself is a pure UI shell synchronous, zero awaits, zero DB
 // calls. All live data is fetched from /api/dashboard by the client
 // component below, with skeletons in the meantime. This guarantees the
 // page renders instantly no matter what Supabase is doing.

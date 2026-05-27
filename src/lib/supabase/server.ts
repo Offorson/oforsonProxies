@@ -21,7 +21,7 @@ export async function createServerSupabase() {
               cookieStore.set(name, value, options);
             });
           } catch {
-            // Ignore — called from a Server Component.
+            // Ignore called from a Server Component.
           }
         },
       },

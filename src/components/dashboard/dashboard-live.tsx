@@ -97,7 +97,7 @@ export function DashboardLive() {
 
   return (
     <>
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
         <Stat
           label="Active proxies"
           value={data.activeProxyCount.toLocaleString()}
@@ -194,7 +194,7 @@ export function DashboardLive() {
                 Generate your first proxy
               </h3>
               <p className="text-sm text-ink-600">
-                Buy your first proxy package to get started — datacenter, ISP,
+                Buy your first proxy package to get started datacenter, ISP,
                 or rotating residential.
               </p>
             </div>
@@ -214,7 +214,7 @@ export function DashboardLive() {
 function DashboardSkeleton() {
   return (
     <div className="space-y-5">
-      <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
         {Array.from({ length: 4 }).map((_, i) => (
           <div
             key={i}
@@ -224,7 +224,7 @@ function DashboardSkeleton() {
       </div>
       <div className="grid gap-5 lg:grid-cols-3">
         <div className="lg:col-span-2 h-72 rounded-2xl border border-ink-200 bg-white animate-pulse" />
-        <div className="h-72 rounded-2xl border border-ink-200 bg-white animate-pulse" />
+        <div className="h-64 rounded-2xl border border-ink-200 bg-white animate-pulse" />
       </div>
     </div>
   );

@@ -11,9 +11,6 @@ export default async function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
-  // Identity comes from the auth session, like the dashboard layout —
-  // no hardcoded placeholder. (Access to /admin itself is gated by
-  // middleware.ts, which checks profiles.is_admin.)
   let displayUser: { name: string; email: string; avatar?: string } = {
     name: "Admin",
     email: "",

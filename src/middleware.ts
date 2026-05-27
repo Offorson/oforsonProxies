@@ -2,7 +2,7 @@ import { NextResponse, type NextRequest } from "next/server";
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 
 /**
- * Auth middleware — refreshes the Supabase session cookie and gates
+ * Auth middleware refreshes the Supabase session cookie and gates
  * /dashboard and /admin routes.
  */
 export async function middleware(request: NextRequest) {

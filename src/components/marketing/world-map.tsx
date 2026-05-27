@@ -130,10 +130,14 @@ export function WorldMap() {
       />
 
       {/* Realistic world map silhouette */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src="/world-map.svg"
         alt=""
         aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+        fetchPriority="low"
         className="absolute inset-0 h-full w-full object-cover select-none pointer-events-none"
         style={{ filter: "brightness(1.55) saturate(0.4)", opacity: 0.95 }}
         draggable={false}

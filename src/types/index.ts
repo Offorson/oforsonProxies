@@ -182,7 +182,7 @@ export interface ProxyConfigurationRule {
   updated_at: string;
 }
 
-/** Network exclusivity tier — maps onto a Webshare proxy_type. */
+/** Network exclusivity tier maps onto a Webshare proxy_type. */
 export type Exclusivity = "shared" | "private" | "dedicated";
 
 export interface CheckoutConfig {
@@ -196,10 +196,10 @@ export interface CheckoutConfig {
   unlimited: boolean;
   /** Chosen standard bandwidth tier in GB (proxy-billed products). */
   standardGb: number;
-  /** Add-on: Manual Replacements — proxy replacements included. */
+  /** Add-on: Manual Replacements proxy replacements included. */
   proxyReplacements: number;
   /**
-   * Add-on: Recurring Replacements — how often the whole proxy list is
+   * Add-on: Recurring Replacements how often the whole proxy list is
    * automatically refreshed, in seconds. 0 means no recurring refresh.
    */
   automaticRefreshFrequency: number;

@@ -122,7 +122,7 @@ export function ProxyIntegration() {
           <div>
             <CardTitle>Proxy integration</CardTitle>
             <CardDescription>
-              Quickstart — see your first proxy working in seconds. Run this in
+              Quickstart see your first proxy working in seconds. Run this in
               your terminal or app.
             </CardDescription>
           </div>

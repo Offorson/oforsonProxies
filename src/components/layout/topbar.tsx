@@ -18,7 +18,6 @@ export function TopBar({
   const menuRef = useRef<HTMLDivElement>(null);
   const initial = (user?.name || user?.email || "U").charAt(0).toUpperCase();
 
-  // Close the account menu on click/tap outside, or on Escape.
   useEffect(() => {
     if (!menuOpen) return;
     function onPointerDown(e: PointerEvent) {
@@ -45,7 +44,7 @@ export function TopBar({
           <div className="relative w-full">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-ink-400" />
             <input
-              placeholder="Search proxies, sessions, docs…"
+              placeholder="Search proxies, sessions, docs..."
               className="w-full rounded-xl border border-ink-200 bg-ink-50/60 pl-10 pr-3 py-2 text-sm focus:bg-white focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/10 transition"
             />
           </div>
@@ -53,7 +52,6 @@ export function TopBar({
 
         <div className="flex items-center gap-2">
           <NotificationsDropdown />
-
           <div ref={menuRef} className="relative">
             <button
               onClick={() => setMenuOpen((o) => !o)}
@@ -68,6 +66,7 @@ export function TopBar({
               </span>
               <ChevronDown className="h-4 w-4 text-ink-500" />
             </button>
+
             <AnimatePresence>
               {menuOpen && (
                 <motion.div
@@ -78,7 +77,7 @@ export function TopBar({
                 >
                   {[
                     { label: "Profile", icon: User, href: "/dashboard/settings" },
-                    { label: "Settings", icon: Settings, href: "/dashboard/settings" }
+                    { label: "Settings", icon: Settings, href: "/dashboard/settings" },
                   ].map(({ label, icon: Icon, href }) => (
                     <a
                       key={label}

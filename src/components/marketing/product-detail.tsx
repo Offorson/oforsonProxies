@@ -56,7 +56,7 @@ export function ProductDetail({ eyebrow, title, subtitle, features }: Props) {
               <span className="font-semibold">
                 The more you buy, the less you pay.
               </span>{" "}
-              Volume pricing is applied automatically at checkout — every extra
+              Volume pricing is applied automatically at checkout every extra
               IP or GB you add lowers your per-unit rate.
             </p>
           </div>

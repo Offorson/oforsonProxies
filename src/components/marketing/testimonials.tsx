@@ -1,6 +1,5 @@
 "use client";
 
-import { Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { FadeIn } from "@/components/animations/fade-in";
 
@@ -72,12 +71,7 @@ export function Testimonials() {
               transition={{ duration: 0.5, delay: i * 0.05 }}
               className="rounded-2xl border border-ink-200 bg-white p-6 shadow-soft"
             >
-              <div className="flex items-center gap-0.5 text-amber-400">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-current" />
-                ))}
-              </div>
-              <p className="mt-4 text-sm text-ink-800 leading-relaxed">"{r.quote}"</p>
+              <p className="text-sm text-ink-800 leading-relaxed">"{r.quote}"</p>
               <div className="mt-5 flex items-center gap-3 border-t border-ink-100 pt-4">
                 <span className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-brand-500 to-blue-600 text-sm font-bold text-white">
                   {r.avatar}

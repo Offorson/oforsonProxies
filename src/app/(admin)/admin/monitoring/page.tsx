@@ -32,7 +32,7 @@ export default function MonitoringPage() {
       <div className="mt-6 grid gap-5 lg:grid-cols-2">
         <Card>
           <CardHeader>
-            <CardTitle>API latency — 24h</CardTitle>
+            <CardTitle>API latency 24h</CardTitle>
             <CardDescription>P50, milliseconds</CardDescription>
           </CardHeader>
           <CardContent>
@@ -42,7 +42,7 @@ export default function MonitoringPage() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Errors — 24h</CardTitle>
+            <CardTitle>Errors 24h</CardTitle>
             <CardDescription>Errors per minute</CardDescription>
           </CardHeader>
           <CardContent>

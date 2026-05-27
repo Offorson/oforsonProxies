@@ -24,8 +24,6 @@ import { Logo } from "./logo";
 import { cn } from "@/utils/cn";
 import type { NavIconKey, NavItem } from "@/constants/nav";
 
-// Map nav icon-keys (strings, safe to cross the server→client boundary)
-// to the actual lucide icon components.
 const ICONS: Record<NavIconKey, LucideIcon> = {
   dashboard: LayoutDashboard,
   globe: Globe2,
@@ -44,11 +42,6 @@ const ICONS: Record<NavIconKey, LucideIcon> = {
   shield: Shield,
 };
 
-/**
- * The list of navigation links. Shared by the desktop sidebar and the
- * mobile slide-in drawer so both stay in sync. `onNavigate` lets the
- * mobile drawer close itself when a link is tapped.
- */
 export function SidebarNav({
   items,
   onNavigate,
@@ -97,12 +90,14 @@ export function Sidebar({
   footer?: React.ReactNode;
 }) {
   return (
-    <aside className="hidden lg:flex h-screen w-64 flex-col border-r border-ink-200 bg-white sticky top-0">
-      <div className="px-6 py-5 border-b border-ink-100">
+    <aside className="hidden lg:flex w-64 shrink-0 flex-col border-r border-ink-200 bg-white">
+      <div className="flex h-16 items-center border-b border-ink-100 px-5">
         <Logo />
       </div>
       <SidebarNav items={items} />
-      {footer && <div className="border-t border-ink-100 p-4">{footer}</div>}
+      {footer && (
+        <div className="border-t border-ink-100 p-3">{footer}</div>
+      )}
     </aside>
   );
 }

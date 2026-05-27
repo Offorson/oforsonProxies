@@ -41,7 +41,7 @@ export async function GET() {
     .filter(([p]) => p !== "free")
     .reduce((acc, [, n]) => acc + n, 0);
 
-  // MRR by month — last 12 months based on subscription created_at
+  // MRR by month last 12 months based on subscription created_at
   // We approximate: count subs created on or before each month-end still active today
   const now = new Date();
   const mrrByMonth: Array<{ name: string; usd: number }> = [];

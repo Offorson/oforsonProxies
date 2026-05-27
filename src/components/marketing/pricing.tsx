@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Check, Sparkles, TrendingDown } from "lucide-react";
+import { Check, TrendingDown } from "lucide-react";
 import { motion } from "framer-motion";
 import { PRICING_PLANS } from "@/constants/plans";
 import { cn } from "@/utils/cn";
@@ -17,7 +17,7 @@ export function Pricing() {
             Pay only for what you use.
           </h2>
           <p className="mt-4 text-lg text-ink-600">
-            Every order is priced live and scales with volume — build your
+            Every order is priced live and scales with volume build your
             package in the dashboard and the price updates as you go.
           </p>
         </FadeIn>
@@ -40,7 +40,6 @@ export function Pricing() {
             >
               {plan.recommended && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 inline-flex items-center gap-1 rounded-full bg-gradient-to-r from-brand-500 to-blue-600 px-3 py-1 text-[11px] font-semibold text-white shadow-glow">
-                  <Sparkles className="h-3 w-3" />
                   Most popular
                 </div>
               )}
@@ -101,7 +100,7 @@ export function Pricing() {
               <span className="font-semibold">Volume pricing, automatic.</span>{" "}
               The more you buy, the less you pay per unit. When you build an
               order in the dashboard, every extra IP or GB lowers your
-              per-unit rate — and the price updates live as your order grows.
+              per-unit rate and the price updates live as your order grows.
             </p>
           </div>
         </FadeIn>

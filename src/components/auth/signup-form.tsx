@@ -38,7 +38,6 @@ export function SignupForm() {
           className={inputClasses}
         />
       </Field>
-
       <Field label="Email" name="email" required>
         <input
           type="email"
@@ -49,14 +48,12 @@ export function SignupForm() {
           className={inputClasses}
         />
       </Field>
-
       <PasswordInput
         name="password"
         placeholder="Create a password (min 8 chars)"
         autoComplete="new-password"
         minLength={8}
       />
-
       {state?.error && (
         <p
           role="alert"
@@ -65,9 +62,7 @@ export function SignupForm() {
           {state.error}
         </p>
       )}
-
       <SubmitButton label="Create account" />
-
       <p className="text-center text-xs text-slate-400">
         By signing up you agree to our{" "}
         <a href="/legal/terms" className="underline hover:text-slate-600">Terms</a>
@@ -110,7 +105,7 @@ export function SubmitButton({ label }: { label: string }) {
       {pending && (
         <span className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
       )}
-      {pending ? "Working…" : label}
+      {pending ? "Working..." : label}
     </button>
   );
 }

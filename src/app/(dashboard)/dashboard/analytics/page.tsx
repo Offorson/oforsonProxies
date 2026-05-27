@@ -52,20 +52,20 @@ export default async function AnalyticsPage() {
         <Card className="lg:col-span-2">
           <CardHeader>
             <CardTitle>Daily traffic</CardTitle>
-            <CardDescription>GB transferred per day — last 30 days</CardDescription>
+            <CardDescription>GB transferred per day last 30 days</CardDescription>
           </CardHeader>
-          <CardContent>
-            <AreaChart data={data.traffic30d} dataKey="gb" height={300} />
+                  <CardContent>
+            <AreaChart data={data.traffic30d} dataKey="gb" xKey="name" />
           </CardContent>
         </Card>
 
         <Card>
           <CardHeader>
-            <CardTitle>Bandwidth by type</CardTitle>
-            <CardDescription>GB used per proxy type</CardDescription>
+            <CardTitle>By proxy type</CardTitle>
+            <CardDescription>GB used per product</CardDescription>
           </CardHeader>
           <CardContent>
-            <BarChart data={data.bandwidthByType} dataKey="gb" height={300} />
+            <BarChart data={data.bandwidthByType} dataKey="gb" xKey="name" />
           </CardContent>
         </Card>
       </div>

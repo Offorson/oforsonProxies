@@ -1,7 +1,15 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Globe2, Activity, Wifi, KeyRound, Server, BarChart3 } from "lucide-react";
+import {
+  Globe2,
+  Activity,
+  Wifi,
+  KeyRound,
+  Server,
+  BarChart3,
+  Settings,
+} from "lucide-react";
 import { FadeIn } from "@/components/animations/fade-in";
 
 export function DashboardPreview() {
@@ -16,35 +24,61 @@ export function DashboardPreview() {
             A control plane built for serious data teams.
           </h2>
           <p className="mt-4 text-lg text-ink-600">
-            Generate proxies, monitor sessions, track usage and rotate IPs — all in one elegant
+            Generate proxies, monitor sessions, track usage and rotate IPs all in one elegant
             workspace.
           </p>
         </FadeIn>
 
         <FadeIn delay={0.1} className="mt-12">
-          <div className="relative mx-auto max-w-6xl rounded-3xl border border-ink-200 bg-white shadow-soft overflow-hidden">
+          <div className="relative mx-auto max-w-6xl rounded-2xl sm:rounded-3xl border border-ink-200 bg-white shadow-soft overflow-hidden">
             <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-64 w-[700px] rounded-full bg-gradient-to-b from-brand-200/40 to-transparent blur-3xl" />
 
             {/* Faux app chrome */}
-            <div className="flex items-center gap-2 border-b border-ink-100 px-4 py-3">
-              <span className="h-2.5 w-2.5 rounded-full bg-rose-300" />
-              <span className="h-2.5 w-2.5 rounded-full bg-amber-300" />
-              <span className="h-2.5 w-2.5 rounded-full bg-emerald-300" />
-              <div className="ml-3 flex-1 max-w-xs rounded-md bg-ink-100 px-3 py-1 text-xs text-ink-500">
+            <div className="flex items-center gap-2 border-b border-ink-100 px-3 sm:px-4 py-2.5 sm:py-3">
+              <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-rose-300" />
+              <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-amber-300" />
+              <span className="h-2 w-2 sm:h-2.5 sm:w-2.5 rounded-full bg-emerald-300" />
+              <div className="ml-2 sm:ml-3 flex-1 max-w-xs rounded-md bg-ink-100 px-2 sm:px-3 py-1 text-[10px] sm:text-xs text-ink-500 truncate">
                 app.oforson.dev / dashboard
               </div>
             </div>
 
-            <div className="grid grid-cols-12 gap-0">
-              {/* Sidebar */}
-              <aside className="col-span-3 border-r border-ink-100 p-4 space-y-1 bg-ink-50/30">
+            {/* ── Mobile-only sidebar (horizontal scroll chips) ───────── */}
+            <div className="md:hidden flex items-center gap-1.5 overflow-x-auto border-b border-ink-100 bg-ink-50/40 px-3 py-2.5 [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+              {[
+                { icon: BarChart3, label: "Overview", active: true },
+                { icon: Globe2, label: "Proxies" },
+                { icon: Activity, label: "Analytics" },
+                { icon: Wifi, label: "Sessions" },
+                { icon: KeyRound, label: "API Keys" },
+                { icon: Server, label: "Billing" },
+                { icon: Settings, label: "Settings" },
+              ].map(({ icon: Icon, label, active }) => (
+                <div
+                  key={label}
+                  className={`flex items-center gap-1.5 shrink-0 rounded-full px-2.5 py-1 text-[11px] font-medium border ${
+                    active
+                      ? "bg-white text-brand-700 border-brand-200 shadow-sm"
+                      : "bg-white/60 text-ink-600 border-ink-100"
+                  }`}
+                >
+                  <Icon className="h-3 w-3" />
+                  {label}
+                </div>
+              ))}
+            </div>
+
+            <div className="md:grid md:grid-cols-12 md:gap-0">
+              {/* Desktop sidebar */}
+              <aside className="hidden md:block md:col-span-3 border-r border-ink-100 p-4 space-y-1 bg-ink-50/30">
                 {[
                   { icon: BarChart3, label: "Overview", active: true },
                   { icon: Globe2, label: "Proxies" },
                   { icon: Activity, label: "Analytics" },
                   { icon: Wifi, label: "Sessions" },
                   { icon: KeyRound, label: "API Keys" },
-                  { icon: Server, label: "Billing" }
+                  { icon: Server, label: "Billing" },
+                  { icon: Settings, label: "Settings" },
                 ].map(({ icon: Icon, label, active }) => (
                   <div
                     key={label}
@@ -61,8 +95,8 @@ export function DashboardPreview() {
               </aside>
 
               {/* Main */}
-              <div className="col-span-9 p-6 space-y-5">
-                <div className="grid grid-cols-4 gap-3">
+              <div className="md:col-span-9 p-4 sm:p-6 space-y-4 sm:space-y-5">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 sm:gap-3">
                   {[
                     { l: "Active proxies", v: "1,284", d: "+12%" },
                     { l: "Bandwidth", v: "428 GB", d: "+4.2%" },
@@ -70,18 +104,18 @@ export function DashboardPreview() {
                     { l: "Uptime", v: "99.99%", d: "Stable" }
                   ].map((s) => (
                     <div key={s.l} className="rounded-xl border border-ink-100 p-3">
-                      <p className="text-[10px] uppercase tracking-wide text-ink-500">{s.l}</p>
-                      <p className="mt-1 text-lg font-bold text-ink-900">{s.v}</p>
-                      <p className="text-[10px] text-emerald-600 mt-0.5">{s.d}</p>
+                      <p className="text-[9px] sm:text-[10px] uppercase tracking-wide text-ink-500">{s.l}</p>
+                      <p className="mt-1 text-base sm:text-lg font-bold text-ink-900">{s.v}</p>
+                      <p className="text-[9px] sm:text-[10px] text-emerald-600 mt-0.5">{s.d}</p>
                     </div>
                   ))}
                 </div>
 
                 {/* Chart */}
-                <div className="rounded-xl border border-ink-100 p-4">
+                <div className="rounded-xl border border-ink-100 p-3 sm:p-4">
                   <div className="flex items-center justify-between">
-                    <p className="text-xs font-medium text-ink-900">Bandwidth — last 7 days</p>
-                    <span className="text-[10px] text-ink-500">428 GB used</span>
+                    <p className="text-[11px] sm:text-xs font-medium text-ink-900">Bandwidth last 7 days</p>
+                    <span className="text-[9px] sm:text-[10px] text-ink-500">428 GB used</span>
                   </div>
                   <svg viewBox="0 0 400 100" className="mt-3 w-full">
                     <defs>
@@ -108,9 +142,9 @@ export function DashboardPreview() {
                 </div>
 
                 {/* Proxy generator preview */}
-                <div className="rounded-xl border border-ink-100 p-4">
-                  <p className="text-xs font-medium text-ink-900">Generate proxy</p>
-                  <div className="mt-3 grid grid-cols-4 gap-2 text-[11px]">
+                <div className="rounded-xl border border-ink-100 p-3 sm:p-4">
+                  <p className="text-[11px] sm:text-xs font-medium text-ink-900">Generate proxy</p>
+                  <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-2 text-[11px]">
                     <Pill label="Type" value="Residential" />
                     <Pill label="Country" value="United States" />
                     <Pill label="Session" value="Sticky · 30m" />
@@ -118,7 +152,7 @@ export function DashboardPreview() {
                       Generate
                     </button>
                   </div>
-                  <div className="mt-3 rounded-lg bg-ink-900 px-3 py-2 font-mono text-[10px] text-emerald-300">
+                  <div className="mt-3 rounded-lg bg-ink-900 px-2.5 sm:px-3 py-2 font-mono text-[9px] sm:text-[10px] text-emerald-300 overflow-x-auto whitespace-nowrap">
                     198.51.100.42:7777:user-session-3a91:••••••••
                   </div>
                 </div>

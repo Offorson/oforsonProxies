@@ -19,7 +19,7 @@ import { createServerSupabase } from "@/lib/supabase/server";
  *
  * Each row is enriched with `bandwidth_exceeded`: a proxy whose
  * bandwidth_used has crossed its per-proxy bandwidth_limit_gb cap is, like
- * on Webshare, treated as stopped — it has run out of bandwidth.
+ * on Webshare, treated as stopped it has run out of bandwidth.
  */
 const BYTES_PER_GB = 1_073_741_824;
 

@@ -30,10 +30,10 @@ export default function DocsPage() {
             <h2 className="text-2xl font-semibold text-ink-900">API Reference</h2>
             <p className="mt-2 text-ink-600">All endpoints are versioned at <code>/v1</code>. Authenticate with a Bearer token.</p>
             <ul className="mt-4 space-y-2 text-sm text-ink-700">
-              <li><code className="rounded bg-ink-100 px-2 py-0.5">POST /v1/proxies/generate</code> — Generate a proxy</li>
-              <li><code className="rounded bg-ink-100 px-2 py-0.5">GET /v1/proxies</code> — List proxies</li>
-              <li><code className="rounded bg-ink-100 px-2 py-0.5">GET /v1/usage</code> — Bandwidth usage</li>
-              <li><code className="rounded bg-ink-100 px-2 py-0.5">POST /v1/keys</code> — Create API key</li>
+              <li><code className="rounded bg-ink-100 px-2 py-0.5">POST /v1/proxies/generate</code> Generate a proxy</li>
+              <li><code className="rounded bg-ink-100 px-2 py-0.5">GET /v1/proxies</code> List proxies</li>
+              <li><code className="rounded bg-ink-100 px-2 py-0.5">GET /v1/usage</code> Bandwidth usage</li>
+              <li><code className="rounded bg-ink-100 px-2 py-0.5">POST /v1/keys</code> Create API key</li>
             </ul>
           </section>
 

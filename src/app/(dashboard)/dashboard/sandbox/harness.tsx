@@ -316,7 +316,7 @@ export function SandboxHarness({ currentUserEmail, isAdmin }: Props) {
             error: error.message,
             status: error.status,
             hint: error.message?.toLowerCase().includes("invalid")
-              ? "Run database/migrations/006_qa_seed.sql in your Supabase SQL editor — the seeded password is TestPass!2026."
+              ? "Run database/migrations/006_qa_seed.sql in your Supabase SQL editor the seeded password is TestPass!2026."
               : undefined,
           },
           errorBanner: "Sign-in failed for " + targetUserObj.email,
@@ -470,12 +470,12 @@ export function SandboxHarness({ currentUserEmail, isAdmin }: Props) {
       simulateWebhookWrapped(targetUser, "customer.subscription.deleted", plan, proxyType, reloadIframe)
     );
 
-  // Deep diagnostic — hits /api/qa/diagnose with the service role key
+  // Deep diagnostic hits /api/qa/diagnose with the service role key
   // and reports whether the seeded QA users have profile rows AND
   // matching subscription / proxy_sessions / bandwidth_usage rows. If
   // the dashboard "looks the same" no matter who you sign in as, the
   // most common cause is the seed-data half of 006_qa_seed.sql never
-  // landed in this project — this button proves or disproves that.
+  // landed in this project this button proves or disproves that.
   const testDiagnose = () =>
     run("qa-diagnose", "QA - diagnose seed + auth state", async () => {
       const res = await fetch("/api/qa/diagnose", {

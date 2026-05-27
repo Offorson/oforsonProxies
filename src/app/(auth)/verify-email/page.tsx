@@ -1,7 +1,7 @@
 import { MailCheck } from "lucide-react";
 import Link from "next/link";
 
-export const metadata = { title: "Verify your email — OforsonProxies" };
+export const metadata = { title: "Verify your email OforsonProxies" };
 
 export default function VerifyEmailPage() {
   return (

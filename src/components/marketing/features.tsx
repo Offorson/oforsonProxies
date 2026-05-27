@@ -13,7 +13,7 @@ import {
 import { FadeIn, StaggerChildren, StaggerItem } from "@/components/animations/fade-in";
 
 const FEATURES = [
-  { icon: Zap, title: "Scales with you", body: "Add proxies or bandwidth as your workload grows — no rate-limit surprises." },
+  { icon: Zap, title: "Scales with you", body: "Add proxies or bandwidth as your workload grows, no rate-limit surprises." },
   { icon: Globe2, title: "Global IP coverage", body: "Country and city-level targeting across a broad global IP footprint." },
   { icon: Repeat, title: "Fast rotation", body: "Sub-second IP rotation tuned for anti-detection." },
   { icon: Wifi, title: "Sticky sessions", body: "Pin a session to one IP for long-running, account-bound workflows." },
@@ -33,7 +33,7 @@ export function Features() {
             Built for scale. Designed for clarity.
           </h2>
           <p className="mt-4 text-lg text-ink-600">
-            Every primitive a high-throughput data team needs — without enterprise overhead.
+            Every primitive a high-throughput data team needs without enterprise overhead.
           </p>
         </FadeIn>
 

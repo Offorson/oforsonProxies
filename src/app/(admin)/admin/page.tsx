@@ -38,7 +38,7 @@ export default function AdminOverview() {
           <CardHeader>
             <div className="flex items-center justify-between">
               <div>
-                <CardTitle>Revenue — last 12 months</CardTitle>
+                <CardTitle>Revenue last 12 months</CardTitle>
                 <CardDescription>MRR + one-time charges</CardDescription>
               </div>
               <Badge variant="success">+38% YoY</Badge>
@@ -51,7 +51,7 @@ export default function AdminOverview() {
 
         <Card>
           <CardHeader>
-            <CardTitle>Signups — last 14 days</CardTitle>
+            <CardTitle>Signups last 14 days</CardTitle>
             <CardDescription>New activations / day</CardDescription>
           </CardHeader>
           <CardContent>

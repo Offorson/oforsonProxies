@@ -8,7 +8,7 @@ export default function Page() {
       slug="residential-static"
       eyebrow="Static Residential"
       title="ISP-grade sticky residential IPs"
-      subtitle="Sessions that stay yours — perfect for verification flows and account-bound automation."
+      subtitle="Sessions that stay yours perfect for verification flows and account-bound automation."
       features={[
         "Sticky, long-lived sessions",
         "ISP-level trust score",

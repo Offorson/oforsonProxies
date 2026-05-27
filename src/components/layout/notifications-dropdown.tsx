@@ -67,7 +67,7 @@ export function NotificationsDropdown() {
       }
     } catch (err) {
       // Offline, network failure, or a non-JSON response. Degrade
-      // quietly — without this catch the rejection bubbles out of the
+      // quietly without this catch the rejection bubbles out of the
       // polling effect as an unhandled error and crashes the page.
       console.warn("[notifications] failed to load:", err);
     } finally {
@@ -239,7 +239,7 @@ function PlanCard({ plan }: { plan: PlanSummary }) {
         month: "short",
         day: "numeric",
       })
-    : "—";
+    : "-";
 
   return (
     <div className="border-b border-ink-100 bg-gradient-to-br from-brand-50/60 to-white p-4">

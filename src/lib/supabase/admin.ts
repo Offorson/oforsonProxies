@@ -1,7 +1,7 @@
 import { createClient } from "@supabase/supabase-js";
 
 /**
- * Service-role Supabase client. Server-only — never expose to the browser.
+ * Service-role Supabase client. Server-only never expose to the browser.
  * Use for trusted admin operations that need to bypass RLS.
  */
 export function createAdminClient() {

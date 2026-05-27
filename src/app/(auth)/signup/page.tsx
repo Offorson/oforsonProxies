@@ -2,7 +2,7 @@ import { GoogleButton } from "@/components/auth/oauth-buttons";
 import { SignupForm } from "@/components/auth/signup-form";
 import Link from "next/link";
 
-export const metadata = { title: "Create account — OforsonProxies" };
+export const metadata = { title: "Create account OforsonProxies" };
 
 export default function SignupPage() {
   return (
@@ -10,7 +10,7 @@ export default function SignupPage() {
       <div className="mb-8">
         <h1 className="text-2xl font-bold text-slate-900 mb-1">Create your account</h1>
         <p className="text-slate-500 text-sm">
-          Start with 1 GB free — no credit card required.
+          Start with 1 GB free no credit card required.
         </p>
       </div>
 
@@ -33,3 +33,4 @@ export default function SignupPage() {
     </div>
   );
 }
+ 

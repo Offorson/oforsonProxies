@@ -13,7 +13,6 @@ export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-
   const hasDarkHero = pathname === "/";
 
   useEffect(() => {
@@ -96,7 +95,7 @@ export function Navbar() {
           </Link>
         </div>
 
-        {/* Mobile actions: a visible Log in button + the menu toggle */}
+        {/* Mobile actions */}
         <div className="flex items-center gap-1 md:hidden">
           <Link
             href="/login"
@@ -171,15 +170,15 @@ export function Navbar() {
             <div className="mt-4 flex flex-col gap-3">
               <Link
                 href="/login"
-                className="w-full rounded-xl border border-ink-200 px-5 py-3 text-center text-sm font-semibold text-black hover:bg-ink-100 transition"
+                className="rounded-xl border border-ink-200 px-4 py-3 text-base font-semibold text-center text-black hover:bg-ink-100 transition"
               >
                 Log in
               </Link>
               <Link
                 href="/signup"
-                className="btn-primary w-full justify-center py-3 text-sm"
+                className="rounded-xl bg-slate-900 px-4 py-3 text-base font-semibold text-center text-white hover:bg-slate-700 transition"
               >
-                Get started <ArrowRight className="h-4 w-4" />
+                Get started
               </Link>
             </div>
           </motion.div>

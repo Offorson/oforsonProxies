@@ -5,7 +5,7 @@ import { ArrowLeft, Printer } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 /**
- * Receipt action bar — kept in its own client component so the receipt
+ * Receipt action bar kept in its own client component so the receipt
  * page itself can stay a server component. Sits OUTSIDE the `.print-area`
  * wrapper so it never shows up on a printed / saved-to-PDF receipt.
  */

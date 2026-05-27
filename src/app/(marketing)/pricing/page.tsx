@@ -13,7 +13,7 @@ export default function PricingPage() {
             Pay only for what you use.
           </h1>
           <p className="mt-4 max-w-xl mx-auto text-lg text-ink-600">
-            Every order is priced live from real upstream cost — and volume
+            Every order is priced live from real upstream cost, and volume
             pricing means the more you buy, the less you pay per unit.
           </p>
         </div>

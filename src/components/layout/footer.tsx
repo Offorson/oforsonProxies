@@ -48,7 +48,7 @@ export function Footer() {
 
         <div className="mt-16 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-t border-ink-200 pt-8">
           <p className="text-sm text-ink-500">
-            © {new Date().getFullYear()} {siteConfig.company.legalName}. All rights reserved.
+            &copy; {new Date().getFullYear()} {siteConfig.company.legalName}. All rights reserved.
           </p>
           <p className="text-xs text-ink-500">
             Residential, ISP &amp; datacenter proxies.

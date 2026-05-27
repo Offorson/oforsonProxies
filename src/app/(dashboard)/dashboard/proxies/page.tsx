@@ -42,7 +42,7 @@ interface ProxyRow {
   bandwidth_exceeded: boolean;
 }
 
-// Product-level descriptors only — the upstream provider is never named.
+// Product-level descriptors only the upstream provider is never named.
 const TYPE_LABEL: Record<ProxyRow["proxy_type"], string> = {
   static_residential: "Static Residential",
   rotating_residential: "Rotating Residential",
@@ -83,7 +83,7 @@ function formatProxy(p: ProxyRow, fmt: FormatId): string {
 
 /** Human "time since" label for the Last checked column. */
 function timeAgo(iso: string | null): string {
-  if (!iso) return "—";
+  if (!iso) return "-";
   const diff = Date.now() - new Date(iso).getTime();
   if (!Number.isFinite(diff) || diff < 0) return "just now";
   const s = Math.floor(diff / 1000);
@@ -181,6 +181,15 @@ export default function ProxiesPage() {
     [filtered, format],
   );
 
+  // When the user is viewing static residential proxies only, suppress the
+  // city / last-checked columns they don't apply to static IPs (which are
+  // fixed allocations rather than rotating sessions).
+  const staticOnly =
+    typeFilter === "static_residential" ||
+    (typeFilter === "all" &&
+      proxies.length > 0 &&
+      proxies.every((p) => p.proxy_type === "static_residential"));
+
   function copyRow(p: ProxyRow) {
     copy(formatProxy(p, format));
     setCopiedRow(p.id);
@@ -239,7 +248,7 @@ export default function ProxiesPage() {
               <strong>
                 {suspendedCount} prox{suspendedCount === 1 ? "y" : "ies"} paused.
               </strong>{" "}
-              Your plan is past due — we&apos;re holding these exact IPs for 48 hours.
+              Your plan is past due we&apos;re holding these exact IPs for 48 hours.
               Settle your invoice and they reactivate instantly.
             </span>
           </div>
@@ -259,7 +268,7 @@ export default function ProxiesPage() {
             <strong>
               {exceededCount} prox{exceededCount === 1 ? "y" : "ies"} stopped.
             </strong>{" "}
-            Their bandwidth allowance is used up — they resume when the plan
+            Their bandwidth allowance is used up they resume when the plan
             renews, or buy a higher bandwidth tier to lift the cap.
           </span>
         </div>
@@ -390,8 +399,12 @@ export default function ProxiesPage() {
                       </button>
                     </th>
                     <th className="px-4 py-2.5 font-medium">Country</th>
-                    <th className="px-4 py-2.5 font-medium">City</th>
-                    <th className="px-4 py-2.5 font-medium">Last checked</th>
+                    {!staticOnly && (
+                      <>
+                        <th className="px-4 py-2.5 font-medium">City</th>
+                        <th className="px-4 py-2.5 font-medium">Last checked</th>
+                      </>
+                    )}
                     <th className="px-4 py-2.5 font-medium">Type</th>
                     <th className="px-4 py-2.5 font-medium">Status</th>
                     <th className="px-4 py-2.5 font-medium text-right">Copy</th>
@@ -410,18 +423,22 @@ export default function ProxiesPage() {
                         }`}
                       >
                         <td className="px-4 py-2.5 font-mono text-ink-900">{p.ip_address}</td>
-                        <td className="px-4 py-2.5 font-mono text-ink-600">{p.port ?? "—"}</td>
-                        <td className="px-4 py-2.5 font-mono text-ink-600">{p.username ?? "—"}</td>
+                        <td className="px-4 py-2.5 font-mono text-ink-600">{p.port ?? "-"}</td>
+                        <td className="px-4 py-2.5 font-mono text-ink-600">{p.username ?? "-"}</td>
                         <td className="px-4 py-2.5 font-mono text-ink-600">
-                          {revealed ? (p.password ?? "—") : "••••••••"}
+                          {revealed ? (p.password ?? "-") : "••••••••"}
                         </td>
                         <td className="px-4 py-2.5 text-ink-600">
                           {COUNTRY_NAME[p.country_code] ?? p.country_code}
                         </td>
-                        <td className="px-4 py-2.5 text-ink-600">{p.city ?? "—"}</td>
-                        <td className="px-4 py-2.5 text-ink-500">
-                          {timeAgo(p.last_checked_at)}
-                        </td>
+                        {!staticOnly && (
+                          <>
+                            <td className="px-4 py-2.5 text-ink-600">{p.city ?? "-"}</td>
+                            <td className="px-4 py-2.5 text-ink-500">
+                              {timeAgo(p.last_checked_at)}
+                            </td>
+                          </>
+                        )}
                         <td className="px-4 py-2.5 text-ink-600">{TYPE_LABEL[p.proxy_type]}</td>
                         <td className="px-4 py-2.5">
                           {suspended ? (

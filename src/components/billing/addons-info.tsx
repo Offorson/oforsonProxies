@@ -27,7 +27,7 @@ interface FaqEntry {
 
 /**
  * Plain-language explanations for every add-on. This is the single source
- * of content for the in-app add-on guide — the info icons on the checkout
+ * of content for the in-app add-on guide the info icons on the checkout
  * panel open straight to the matching entry.
  */
 export const ADDON_FAQ: FaqEntry[] = [
@@ -39,15 +39,15 @@ export const ADDON_FAQ: FaqEntry[] = [
     body: [
       {
         heading: "What it does",
-        text: "Recurring Replacements refresh every proxy on your plan on a schedule you choose — monthly, weekly, daily, hourly, or a custom interval. Each refresh retires your current IPs and issues a fresh set, so you are never working from a stale list.",
+        text: "Recurring Replacements refresh every proxy on your plan on a schedule you choose monthly, weekly, daily, hourly, or a custom interval. Each refresh retires your current IPs and issues a fresh set, so you are never working from a stale list.",
       },
       {
         heading: "When to use it",
-        text: "Ideal if your targets gradually block IPs over time, or if you simply want a clean set of proxies at the start of every cycle without lifting a finger. The shorter the interval, the fresher your pool — and the higher the add-on cost.",
+        text: "Ideal if your targets gradually block IPs over time, or if you simply want a clean set of proxies at the start of every cycle without lifting a finger. The shorter the interval, the fresher your pool and the higher the add-on cost.",
       },
       {
         heading: "Choosing a frequency",
-        text: "Pick one of the presets, or choose Custom to set any interval down to the minute. \"No Refreshes\" turns the schedule off entirely — you can still swap proxies yourself with Manual Replacements.",
+        text: "Pick one of the presets, or choose Custom to set any interval down to the minute. \"No Refreshes\" turns the schedule off entirely you can still swap proxies yourself with Manual Replacements.",
       },
       {
         heading: "How it is billed",
@@ -63,7 +63,7 @@ export const ADDON_FAQ: FaqEntry[] = [
     body: [
       {
         heading: "What it does",
-        text: "Manual Replacements give you a set number of one-off proxy swaps. When a specific proxy stops working — blocked, slow, or flagged — you replace just that IP from your dashboard, leaving the rest of your list untouched.",
+        text: "Manual Replacements give you a set number of one-off proxy swaps. When a specific proxy stops working blocked, slow, or flagged you replace just that IP from your dashboard, leaving the rest of your list untouched.",
       },
       {
         heading: "When to use it",
@@ -71,7 +71,7 @@ export const ADDON_FAQ: FaqEntry[] = [
       },
       {
         heading: "Choosing an amount",
-        text: "Pick how many replacements to keep on hand — 10, 50, up to 5,000, or a custom count. Unused replacements stay available for the life of your plan.",
+        text: "Pick how many replacements to keep on hand 10, 50, up to 5,000, or a custom count. Unused replacements stay available for the life of your plan.",
       },
       {
         heading: "How it is billed",
@@ -91,7 +91,7 @@ export const ADDON_FAQ: FaqEntry[] = [
       },
       {
         heading: "When to use it",
-        text: "Worth it for latency-sensitive work — real-time scraping, checkout automation, ad verification — or any time consistent speed matters more than squeezing the price.",
+        text: "Worth it for latency-sensitive work real-time scraping, checkout automation, ad verification or any time consistent speed matters more than squeezing the price.",
       },
       {
         heading: "How it is billed",
@@ -107,8 +107,8 @@ export const ADDON_FAQ: FaqEntry[] = [
  * the checkout panel, so whatever the customer was configuring is kept
  * exactly as it was. On mobile it becomes a full-screen sheet.
  *
- *   • Overview  — the list of every add-on topic.
- *   • Article   — one topic, opened directly from an info icon.
+ *   • Overview  the list of every add-on topic.
+ *   • Article   one topic, opened directly from an info icon.
  *
  * Back returns from an article to the overview; the close (X) button
  * dismisses the panel entirely and reveals the billing page untouched.
@@ -157,7 +157,7 @@ export function AddonInfoPanel({
     <AnimatePresence>
       {open && (
         <div className="fixed inset-0 z-[60] flex">
-          {/* Backdrop — billing page stays mounted and visible behind it. */}
+          {/* Backdrop billing page stays mounted and visible behind it. */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -167,7 +167,7 @@ export function AddonInfoPanel({
             onClick={onClose}
           />
 
-          {/* Panel — full-screen sheet on mobile, right drawer on desktop. */}
+          {/* Panel full-screen sheet on mobile, right drawer on desktop. */}
           <motion.aside
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -178,7 +178,7 @@ export function AddonInfoPanel({
             aria-modal="true"
             aria-label="Add-on guide"
           >
-            {/* Header — back (article only) on the left, close on the right. */}
+            {/* Header back (article only) on the left, close on the right. */}
             <div className="flex items-center justify-between gap-2 border-b border-ink-100 px-4 py-3.5">
               {entry ? (
                 <button

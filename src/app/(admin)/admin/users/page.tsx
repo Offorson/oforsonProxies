@@ -39,7 +39,7 @@ const STATUSES = ["all", "active", "suspended", "pending_verification"] as const
 const MENU_WIDTH = 208;
 
 function formatBandwidth(usedGb: number | null | undefined, totalGb: number | null | undefined): string {
-  if (usedGb == null) return "— GB";
+  if (usedGb == null) return "- GB";
   const used = Math.round(usedGb);
   return totalGb ? `${used} / ${totalGb} GB` : `${used} GB`;
 }
@@ -161,7 +161,7 @@ export default function UsersPage() {
     } catch {
       // Revert on failure
       fetchUsers(q, status);
-      flash("Update failed — changes reverted");
+      flash("Update failed changes reverted");
     }
   };
 
@@ -303,7 +303,7 @@ export default function UsersPage() {
         </div>
       </Card>
 
-      {/* Context menu — fixed positioned, flips above button if near viewport bottom */}
+      {/* Context menu fixed positioned, flips above button if near viewport bottom */}
       {menu && menuUser && (
         <div
           ref={menuRef}
